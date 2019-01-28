@@ -1,11 +1,34 @@
 import * as React from "react";
 
-import '../styles.css';
+import View from './View';
 
-class App extends React.Component {
-    render() {
-        return <h1>Weather!</h1>;
+interface AppStateTypes {
+  woeid: number,
+  city: string,
+  todaysWeather: object,
+  fiveDayForecast: Array<object>,
+  selected: boolean,
+}
+
+class App extends React.Component<any, AppStateTypes> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      woeid: 0,
+      city: '',
+      todaysWeather: {},
+      fiveDayForecast: [],
+      selected: false,
     }
+  }
+
+  render() {
+    return (
+      <div id="wallpaper">
+        <View />
+      </div>
+    );
+  }
 }
 
 export default App;
