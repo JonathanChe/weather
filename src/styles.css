@@ -4,7 +4,7 @@
 }
 
 #wallpaper {
-  background-image: url('../assets/thunder.jpeg');
+  background-image: url('../assets/clear.jpeg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,4 +17,28 @@
   overflow: scroll;
   width: 50%;
   height: 75vh;
+}
+
+#search-bar-container {
+  margin-top: 10%;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  width: 95%;
+  color: #bdbdbd;
+  border: 1px solid #bdbdbd;
+  border-radius: 25px;
+}
+
+#search-bar {
+  color: white;
+  height: 2rem;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+}
+
+#search-icon {
+  height: 50px;
+  padding-right: 10px;
 }
