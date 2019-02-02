@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import View from './View';
+
 const debounce = require('lodash.debounce');
 const axios = require('axios');
 
@@ -44,10 +45,28 @@ class App extends React.Component<any, AppStateTypes> {
   }
 
   render() {
+
+    const {
+      woeid,
+      city,
+      todaysWeather,
+      fiveDayForecast,
+      selected,
+      searchResults,
+      loading
+    } = this.state;
+
     return (
       <div id="wallpaper">
         <View
           handleChange={this.handleChange}
+          woeid={woeid}
+          city={city}
+          todaysWeather={todaysWeather}
+          fiveDayForecast={fiveDayForecast}
+          selected={selected}
+          searchResults={searchResults}
+          loading={loading}
         />
       </div>
     );
