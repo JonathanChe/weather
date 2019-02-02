@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.post('/getWeather', (req, res) => {
-  axios.get('https://www.metaweather.com/api/location/search/?query=san')
+  const { input } = req.body;
+  axios.get(`https://www.metaweather.com/api/location/search/?query=${input}`)
     .then(response => res.json(response.data));
 });
 
