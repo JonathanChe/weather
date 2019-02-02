@@ -12,11 +12,16 @@
   height: 100vh;
 }
 
+.spacing {
+  margin-top: 10px;
+
+}
+
 #container {
   margin: 0 auto;
   overflow: scroll;
   width: 50%;
-  height: 75vh;
+  height: 100vh;
 }
 
 #search-bar-container {

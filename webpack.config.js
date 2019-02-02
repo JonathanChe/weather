@@ -55,9 +55,15 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     hot: true,
     historyApiFallback: true,
+    proxy: {
+      devServer: 'http://localhost:3000/',
+    },
   },
   // externals: {
   //   'react': 'React',
   //   'react-dom': 'ReactDOM',
   // },
+  node: {
+    fs: 'empty',
+  },
 };

@@ -3,6 +3,8 @@ import { TextField, Button, withStyles } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 const Search = (props):any => {
+  const { handleChange } = props;
+
   return (
     <div id="search-bar-container">
       <SearchIcon id="search-icon" />
@@ -12,6 +14,7 @@ const Search = (props):any => {
         id="search-bar"
         autoFocus={true}
         InputProps={{"disableUnderline": true}}
+        onChange={handleChange}
       />
     </div>
   );

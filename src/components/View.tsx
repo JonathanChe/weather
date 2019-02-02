@@ -1,11 +1,20 @@
 import * as React from 'react';
-import Search from './Search';
 
-const View = () => {
+import Search from './Search';
+import Weather from './Weather';
+import Results from './Results';
+
+const View = (props):any => {
+  const { handleChange } = props;
+
   return (
-    <div id="container">
-      <Search />
-    </div>
+    <main id="container">
+      <Search 
+        handleChange={handleChange}
+      />
+      <Weather />
+      <Results />
+    </main>
   )
 };
 
