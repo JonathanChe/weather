@@ -44,6 +44,20 @@ class App extends React.Component<any, AppStateTypes> {
       .catch(err => console.error('error fetching weather ', err))
   }
 
+  fetchSelected = async (woeid) => {
+    await this.toggleLoad();
+    axios.post('http://localhost:3000/selected', { woeid })
+      .then(data => {
+        const { data: { "consolidated_weather": weather } }:any = data;
+        this.setState({
+          loading: false,
+          todaysWeather: weather[0],
+          fiveDayForecast: weather.slice(1),
+        });
+      })
+      .catch(err => console.error('error fetching weather ', err))
+  }
+
   selectCity = (e) => {
     this.setState({ selected: true, woeid: e.target.id });
   }
@@ -60,7 +74,7 @@ class App extends React.Component<any, AppStateTypes> {
       fiveDayForecast,
       selected,
       searchResults,
-      loading
+      loading,
     } = this.state;
 
     return (
@@ -75,7 +89,7 @@ class App extends React.Component<any, AppStateTypes> {
           searchResults={searchResults}
           loading={loading}
           selectCity={this.selectCity}
-          toggleLoad={this.toggleLoad}
+          fetchSelected={this.fetchSelected}
         />
       </div>
     );

@@ -14,7 +14,7 @@ interface Props {
   loading: boolean,
   handleChange: Function,
   selectCity: Function,
-  toggleLoad: Function,
+  fetchSelected: Function,
 }
 
 const View = (props: Props) => {
@@ -28,10 +28,8 @@ const View = (props: Props) => {
     searchResults,
     loading,
     selectCity,
-    toggleLoad,
+    fetchSelected,
   } = props;
-
-  console.log('selected ', selected)
 
   return (
     <main id="container">
@@ -39,7 +37,12 @@ const View = (props: Props) => {
         handleChange={handleChange}
       />
       {selected ? (
-        <Weather woeid={woeid}/>
+        <Weather
+          woeid={woeid}
+          fetchSelected={fetchSelected}
+          todaysWeather={todaysWeather}
+          fiveDayForecast={fiveDayForecast}
+        />
         ) : (
           <Results
             searchResults={searchResults}

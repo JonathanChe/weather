@@ -17,4 +17,10 @@ app.post('/getWeather', (req, res) => {
     .then(response => res.json(response.data));
 });
 
+app.post('/selected', (req, res) => {
+  const { woeid } = req.body;
+  axios.get(`https://www.metaweather.com/api/location/${woeid}/`)
+  .then(response => res.json(response.data));
+});
+
 app.listen(3000, () => console.log('listening on port 3000'));

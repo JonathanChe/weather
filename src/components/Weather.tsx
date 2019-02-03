@@ -6,15 +6,9 @@ class Weather extends React.Component<any, any> {
     super(props);
   }
 
-  componentDidMount() {
-    console.log(this.props);
-
-    // axios.post('http://localhost:3000/getWeather', { input })
-    //   .then(data => this.setState({
-    //     searchResults: data,
-    //     loading: false,
-    //   }))
-    //   .catch(err => console.error('error fetching weather ', err))
+  componentDidMount = () => {
+    const { fetchSelected, woeid } = this.props;
+    fetchSelected(woeid);
   }
 
   render() {
