@@ -44,8 +44,15 @@ class App extends React.Component<any, AppStateTypes> {
       .catch(err => console.error('error fetching weather ', err))
   }
 
-  render() {
+  selectCity = (e) => {
+    this.setState({ selected: true, woeid: e.target.id });
+  }
 
+  toggleLoad = () => {
+    this.setState(prevState => this.setState({ loading: !prevState.loading }))
+  }
+
+  render() {
     const {
       woeid,
       city,
@@ -67,6 +74,8 @@ class App extends React.Component<any, AppStateTypes> {
           selected={selected}
           searchResults={searchResults}
           loading={loading}
+          selectCity={this.selectCity}
+          toggleLoad={this.toggleLoad}
         />
       </div>
     );

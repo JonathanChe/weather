@@ -1,11 +1,14 @@
 import * as React from 'react';
 
-const Results = ({ city, id }) => {
+const Results = ({ city, id, selectCity }) => {
 
   return (
     <div className="result">
-      <span> {city} </span>
-      <span> 
+      <span
+        id={id}
+        onClick={selectCity}
+      >
+        {city}
       </span>
     </div>
   )

@@ -3,7 +3,8 @@ import * as React from 'react';
 import Result from './Result';
 
 interface Props {
-  searchResults: resultTypes
+  searchResults: resultTypes,
+  selectCity: Function,
 }
 
 interface resultTypes {
@@ -11,7 +12,7 @@ interface resultTypes {
 }
 
 const Results = (props: Props) => {
-  const { searchResults } = props;
+  const { searchResults, selectCity } = props;
   let data;
   let results;
 
@@ -21,7 +22,12 @@ const Results = (props: Props) => {
 
   if (data) {
     results = data.map(result => (
-      <Result city={result.title} key={result.woeid} id={result.woeid} />
+      <Result
+        city={result.title}
+        key={result.woeid}
+        id={result.woeid}
+        selectCity={selectCity}
+      />
     ))
   }
 
