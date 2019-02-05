@@ -35,7 +35,7 @@ class App extends React.Component<any, AppStateTypes> {
   }
 
   fetchResults = async (input) => {
-    await this.setState({ loading: true })
+    await this.setState({ loading: true, selected: false })
     axios.post('http://localhost:3000/getWeather', { input })
       .then(data => this.setState({
         searchResults: data,
@@ -59,7 +59,7 @@ class App extends React.Component<any, AppStateTypes> {
   }
 
   selectCity = (e) => {
-    this.setState({ selected: true, woeid: e.target.id });
+    this.setState({ selected: true, woeid: e.target.id, city: e.target.getAttribute("data-city") });
   }
 
   toggleLoad = () => {

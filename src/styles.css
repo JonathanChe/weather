@@ -72,7 +72,7 @@
   border-radius: 10px;
 }
 
-/* .weather-container {
+/* forecast {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
@@ -94,23 +94,17 @@
   border-bottom: 1px solid rgb(68, 68, 68);
 }
 
-#details-icon-container {
+.details-container {
   height: 100%;
-  width: 40%;
-  float: left;
-}
-
-#details-container {
-  height: 100%;
-  width: 40%;
-  float: left;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  flex-wrap: nowrap;
-  padding: 0.75rem 0px 0.375rem;
-  border-bottom: 1px solid rgb(68, 68, 68);
+  padding: 1.5rem;
+}
+
+.details-container span {
+  padding: 1%;
+  font-size: 1.25rem;
+  font-weight: bold;
 }

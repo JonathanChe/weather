@@ -39,6 +39,7 @@ const View = (props: Props) => {
       {selected ? (
         <Weather
           woeid={woeid}
+          city={city}
           fetchSelected={fetchSelected}
           todaysWeather={todaysWeather}
           fiveDayForecast={fiveDayForecast}

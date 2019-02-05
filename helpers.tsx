@@ -1,3 +1,5 @@
 export const convertCeliusToFahrenheit:Function = (num):number => {
-  return (num * 1.8) + 32;
+  const converted = (num * 1.8) + 32;
+  return parseInt(converted.toString(), 10);
 };
+

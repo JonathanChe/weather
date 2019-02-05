@@ -1,6 +1,6 @@
 import * as React from 'react';
-import axios from 'axios';
 import { convertCeliusToFahrenheit } from '../../helpers';
+import Forecast from './Forecast';
 
 class Weather extends React.Component<any, any> {
   constructor(props) {
@@ -13,40 +13,49 @@ class Weather extends React.Component<any, any> {
   }
 
   render() {
-    const { todaysWeather: {
-      "weather_state_name": weatherName,
-      "weather_state_abbr": weatherAbbr,
-      "wind_direction": windDirection,
-      "wind_speed": windSpeed,
-      "the_temp": temp,
-      "min_temp": minTemp,
-      "max_temp": maxTemp,
-      "humidity": humidity
+    const {
+      city,
+      fiveDayForecast,
+      todaysWeather: {
+        "weather_state_name": weatherName,
+        "weather_state_abbr": weatherAbbr,
+        "wind_direction": windDirection,
+        "wind_speed": windSpeed,
+        "the_temp": temp,
+        "min_temp": minTemp,
+        "max_temp": maxTemp,
+        "humidity": humidity
     } } = this.props;
 
     console.log(this.props);
+
     return (
       <div id="weather">
         <div id="title-container">
-          <div>{weatherName}</div>
-          <div>
-            {convertCeliusToFahrenheit(temp)}
-          </div>
+          <h1>{city}</h1>
+          <h2>{weatherName}</h2>
+          <h3>
+            {convertCeliusToFahrenheit(temp)}F
+          </h3>
         </div>
         <div className="weather-container">
           <h1>Forecast</h1>
+          <div className="details-container">
+            <Forecast weather={fiveDayForecast[0]}/>
+            <Forecast weather={fiveDayForecast[1]}/>
+            <Forecast weather={fiveDayForecast[2]}/>
+            <Forecast weather={fiveDayForecast[3]}/>
+            <Forecast weather={fiveDayForecast[4]}/>
+          </div>
         </div>
         <div className="weather-container">
           <h1>Details</h1>
-          <div id="details-icon-container">
-            Icon
-          </div>
-          <div id="details-container">
+          <div className="details-container">
             <span>Humidity: {humidity}</span>
-            <span>Wind Speed: {windSpeed}</span>
-            <span>Wind Direction: {windDirection}</span>
-            <span>Minimum Temp: {minTemp}</span>
-            <span>Max Temp: {maxTemp}</span>
+            <span>Wind Speed: {Math.floor(windSpeed)}</span>
+            <span>Wind Direction: {Math.floor(windDirection)}</span>
+            <span>Minimum Temp: {convertCeliusToFahrenheit(minTemp)}F</span>
+            <span>Max Temp: {convertCeliusToFahrenheit(maxTemp)}F</span>
           </div>
         </div>
       </div>

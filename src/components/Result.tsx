@@ -6,6 +6,7 @@ const Results = ({ city, id, selectCity }) => {
     <div className="result">
       <span
         id={id}
+        data-city={city}
         onClick={selectCity}
       >
         {city}
