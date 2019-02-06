@@ -84,6 +84,10 @@
   border-bottom: 1px solid rgb(68, 68, 68);
 } */
 
+.forecast {
+  display: flex;
+  flex: 1;
+}
 .weather-container {
   margin: 5%;
   border: 1px solid gainsboro;
@@ -107,4 +111,8 @@
   padding: 1%;
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+#title-container {
+  text-align: center;
 }
